@@ -1,3 +1,4 @@
+import { Calculator } from "../components/Calculator";
 import { Navbar } from "../components/Navbar";
 
 function Home(){
@@ -5,6 +6,7 @@ function Home(){
     return (
         <>
             <Navbar/>
+            <Calculator/>
         </>
     )
 }

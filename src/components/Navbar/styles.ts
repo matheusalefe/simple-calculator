@@ -6,11 +6,16 @@ export const Container = styled.nav`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: var(--color-grey-primary);
+    background-color: var(--color-grey-secundary);
     a{
         margin-top: auto;
         margin-bottom: auto;
         margin-right: 2.5rem;
+        text-decoration: none;
+        color: black;
+        &:hover{
+            text-decoration: underline;
+        }
     }
     h1{
         width: 55%;
