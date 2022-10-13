@@ -1,7 +1,14 @@
+import { useState } from "react";
 import { Button } from "../Button";
 import { Container } from "./styles";
 
 export function Calculator(){
+    const [value, setValue] = useState('')
+    const [func, setFunction] = useState('')
+    const [result, setResult] = useState('')
+
+
+
     return(
         <Container>
             <div id="screen">{"Hello, world!"}</div>
