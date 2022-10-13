@@ -34,30 +34,43 @@ export const Container = styled.main`
             font-size: 1.5rem;
         }
     }
-    #numbers{
-        width: 20.75rem;
-        height: 27.625rem;
+    #buttons{
+        width: 100%;
+        margin: auto;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin-top: auto;
-        margin-bottom: auto;
-        margin-left: 2.5rem;
-        @media (max-width: 600px) {
-            width: 10.325rem;
-            height: 13.8rem;
-            font-size: 1.5rem;
-            margin-left: 1.25rem;
-        }
+        flex-direction: row;
+        justify-content: space-evenly;
         tr{
-            width: 100%;
-            display: flex;
-            flex-direction: row;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding-bottom: 2rem;
+                @media (max-width: 600px) {
+                    padding-bottom: 1rem;
+                }
+            }
+        #numbers{
+            width: 20.75rem;
+            height: 27.625rem;
             justify-content: space-between;
-            padding-bottom: 2rem;
+            margin-top: auto;
+            margin-bottom: auto;
             @media (max-width: 600px) {
-                padding-bottom: 1rem;
+                width: 10.325rem;
+                height: 13.8rem;
+                font-size: 1.5rem;
+                margin-left: 1.25rem;
+            }
+        }
+        #functions{
+            width: 14rem;
+            height: 27.625rem;
+            @media (max-width: 600px) {
+                width: 7rem;
+                height: 13.8rem;
             }
         }
     }
+    
 `
