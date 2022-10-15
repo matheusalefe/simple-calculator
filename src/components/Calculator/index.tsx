@@ -66,7 +66,7 @@ export function Calculator(){
 
     return(
         <Container>
-            <div id="screen">{!result? `${value? value : 0} ${func? func : 'func'} ${secondValue? secondValue : 0}` : result}</div>
+            <div id="screen">{!result? value? `${value} ${func? func : 'func'} ${secondValue? secondValue : 0}`: 'Aguardando...' : result}</div>
             <section id="buttons">
                 <table id="numbers">
                     <tbody>
