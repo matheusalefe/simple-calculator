@@ -21,7 +21,12 @@ export function Calculator(){
                 :
                     setSecondValue(secondValue.concat(number))
         :
-            (setResult(undefined), setValue(number))
+            (
+            setSecondValue(undefined),
+            !func?
+                (setResult(undefined), setValue(number))
+            :
+                (setValue(result.toString()), setResult(undefined)))
     }
 
     function Calculate(){
@@ -37,9 +42,8 @@ export function Calculator(){
             } else if (func == 'pwr'){
                 setResult(Number(value) ** Number(secondValue))
             } else if (func == 'root'){
-                setResult(Number(value) ** ( 1 / Number(secondValue)))
+                setResult(Number(secondValue) ** ( 1 / Number(value)))
             }
-            setFunc(undefined)
         } else {
             alert('Invalid expression')
         }
@@ -52,9 +56,17 @@ export function Calculator(){
         setResult(0)
     }
 
+    function Refresh(){
+        if (result){
+            setValue(result.toString())
+            setSecondValue(undefined)
+            setResult(undefined)
+        }
+    }
+
     return(
         <Container>
-            <div id="screen">{result? result : secondValue? secondValue: func? func: value}</div>
+            <div id="screen">{`${value? value : 0} ${func? func : 'func'} ${secondValue? secondValue : 0} = ${result? result : '?'}`}</div>
             <section id="buttons">
                 <table id="numbers">
                     <tbody>
@@ -83,16 +95,16 @@ export function Calculator(){
                 <table id="functions">
                     <tbody>
                         <tr>
-                            <td><Button functionButton={() => setFunc('sum')}>+</Button></td>
-                            <td><Button functionButton={() => setFunc('min')}>-</Button></td>
+                            <td><Button functionButton={() => (setFunc('sum'), Refresh())}>+</Button></td>
+                            <td><Button functionButton={() => (setFunc('min'), Refresh())}>-</Button></td>
                         </tr>
                         <tr>
-                            <td><Button functionButton={() => setFunc('tim')}>x</Button></td>
-                            <td><Button functionButton={() => setFunc('div')}>/</Button></td>
+                            <td><Button functionButton={() => (setFunc('tim'), Refresh())}>x</Button></td>
+                            <td><Button functionButton={() => (setFunc('div'), Refresh())}>/</Button></td>
                         </tr>
                         <tr>
-                            <td><Button functionButton={() => setFunc('pwr')}>^</Button></td>
-                            <td><Button functionButton={() => setFunc('root')}>√</Button></td>
+                            <td><Button functionButton={() => (setFunc('pwr'), Refresh())}>^</Button></td>
+                            <td><Button functionButton={() => (setFunc('root'), Refresh())}>√</Button></td>
                         </tr>
                         <tr>
                             <td><Button variant="red" functionButton={() => Clean()}>C</Button></td>
