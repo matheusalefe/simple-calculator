@@ -14,6 +14,9 @@ export const Container = styled.main`
         width: 25rem;
         align-self: center;
         align-content: center;
+        @media (max-width:600px){
+            width:20rem
+        }
         h1{
             text-align: center;
         }

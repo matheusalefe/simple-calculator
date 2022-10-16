@@ -47,7 +47,7 @@ export function Calculator(){
             } else if (func == 'pwr'){
                 setResult(Number(value) ** Number(secondValue))
             } else if (func == 'root'){
-                setResult(Number(secondValue) ** ( 1 / Number(value)))
+                setResult(Number(value) ** ( 1 / Number(secondValue)))
             }
         } else {
             alert('Invalid expression')
