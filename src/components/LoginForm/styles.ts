@@ -6,7 +6,7 @@ export const Container = styled.main`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    form{
+    #form{
         position: relative;
         bottom: 7.5rem;
         display: flex;

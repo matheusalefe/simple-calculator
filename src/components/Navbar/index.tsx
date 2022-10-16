@@ -1,11 +1,20 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AppContext } from "../../services/context";
 import { Container } from "./styles";
 
 export function Navbar(){
+    const { userName, portalLogo,setToken } = useContext(AppContext)
     return(
         <Container>
-            <h1>{`[LOGO] Portal`}</h1>
-            <Link to='/login'>Login</Link>
+            <h1>{portalLogo? 
+                <>
+                    <img src={`data:image/png;base64,${portalLogo}`}/>
+                    <span>InfoRMI</span>
+                </>
+                :
+                "Simple Calculator"}{userName? `-> ${userName}`:null}</h1>
+            <Link onClick={() => setToken(undefined)} to='/login'>Login</Link>
         </Container>
     )
 }

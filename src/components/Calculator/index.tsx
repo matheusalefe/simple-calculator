@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import api from "../../services/api";
+import { AppContext } from "../../services/context";
 import { Button } from "../Button";
 import { Container } from "./styles";
 
 export function Calculator(){
+
+    const { token, setUserName, setUserId, setPortalLogo } = useContext(AppContext)
+    
     const [value, setValue] = useState<string>()
     const [secondValue, setSecondValue] = useState<string>()
     const [func, setFunc] = useState<string>()
@@ -63,6 +68,18 @@ export function Calculator(){
             setResult(undefined)
         }
     }
+
+    useEffect(() => {
+            api({
+                method: "POST",
+                url: '/get_user_data',
+                headers:{
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            .then(res => (setUserId(res.data[0].user_id), setUserName(res.data[0].user_name), setPortalLogo(res.data[0].logo_Base64)))
+        
+    },[])
 
     return(
         <Container>
