@@ -21,5 +21,15 @@ export const Container = styled.nav`
         width: 55%;
         display: flex;
         justify-content: flex-end;
+        @media (max-width: 600px) {
+            width: 70%;
+            font-size: 1rem;
+            
+            span{
+                padding-left: 0.5rem;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+        }
     }
 `

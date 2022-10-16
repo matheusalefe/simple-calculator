@@ -13,7 +13,7 @@ export function Navbar(){
                     <span>InfoRMI</span>
                 </>
                 :
-                "Simple Calculator"}{userName? `-> ${userName}`:null}</h1>
+                "Simple Calculator"}{userName? <span>{`-> ${userName}`}</span>:null}</h1>
             <Link onClick={() => setToken(undefined)} to='/login'>Login</Link>
         </Container>
     )
